@@ -30,6 +30,16 @@ fetch('https://react-hooks-update-5bcb2-default-rtdb.firebaseio.com/ingredients.
 });
   };
 
+  const removeIngredientHandler = ingredientId => {
+    fetch(`https://react-hooks-update-5bcb2-default-rtdb.firebaseio.com/ingredients/${ingredientId}.json`, {
+  method: 'DELETE'
+}).then(response => {
+  setUserIngredients(prevIngredients => 
+    prevIngredients.filter(ingredient => ingredient.id !== ingredientId)
+    );
+});
+  };
+
   return (
     <div className="App">
       <IngredientForm onAddIngredient={addIngredientHandler}/>
