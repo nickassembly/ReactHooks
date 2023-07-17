@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     document.title = input;
-    console.log('useEffect');
+    console.log('useEffect ran');
   }, [input]);
 
 
